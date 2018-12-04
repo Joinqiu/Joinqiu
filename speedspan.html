@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: orange;
+		}
+		.b {
+			width: 100px;
+			height: 100px;
+			float: left;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+  <input type="radio" name="1" id="">$
+  <input type="radio" name="1" id="">$
+  <input type="radio" name="1" id="">$
+
+
+	a{$@-1}*9
+	.box$@-1*3
+	<div class="box">
+		hkjhgkjhjkjhjk
+		<div class="b"></div>
+	</div>
+	<script>
+		var undefined;
+      console.log(undefined == null)  ; // true
+      console.log(1 == true)  ; // true
+      console.log(2 == true)  ; // false
+      console.log(0 == false)  ; // true
+      console.log(0 == '')  ; // true
+      console.log(NaN == NaN)  ; // false
+      console.log([] == false)  ; // true
+      console.log([] == ![])  ; // true
+
+// 字符串+为拼接，类型为字符串，有其他运算符转为数值运算，类型随之变为数值
+    var foo = "11"+2-"1";
+    console.log(foo);
+    console.log(typeof foo);
+
+// 对象属性值修改
+       var a = new Object();
+       a.value = 1;
+       b = a;
+       b.value = 2;
+       // alert(a.value);
+
+// 字符串拼接
+       var stringArray = ["This", "is", "Baidu", "Campus"];
+       console.log(stringArray.join(' '));
+
+// 循环中的定时器
+       for(var i=1;i<=3;i++){
+	        // console.log(i);
+	        // 不会立即执行，循环结束再执行，结果 4 4 4
+	        //   setTimeout(function(){
+	        //       console.log(i);    
+	        //   },0); 
+	        // 立即执行，结果 1 2 3
+         setTimeout((function(q){
+             console.log(q);    
+         })(i),0);  
+       };
+
+// 函数作为返回值（判断类型）
+        function creatFn (type) {
+        	return function (obj) {
+        		return Object.prototype.toString.call(obj) === type;
+        	}
+        }
+        var isArry = creatFn ('[object Array]');
+        console.log(isArry({}));
+
+// NAN运算 
+        var a=undefined; 
+        b=NaN;
+        console.log(a+b); 
+        var a= "123",b=NaN;
+        console.log(a+b); 
+        var a =undefined , b =NaN;
+        console.log(a+b); 
+        var a=NaN , b='undefined';
+        console.log(a+b);
+
+// 日期,月份从0开始
+        function DateDemo(){
+           var d, s="今天日期是：";
+           d = new Date();
+           s += d.getMonth()+1 + "/";
+           s += d.getDate() + "/";
+           s += d.getFullYear();
+           s+= d.getDay();
+           return s;
+         }
+         console.log(DateDemo());
+
+// for循环声明俩个不同变量时，其中一个变量不满足条件就终止
+         for(i=0, j=0; i<10, j<6; i++, j++) {
+         	   // console.log(i,j);
+              k = i + j;
+              console.log(k);
+        }
+        // console.log(k);
+
+//  判断一个字符串中出现次数最多的字符，并且统计出现的次数-->
+        var str = "bbbccccddddddddfghaaaahs";
+        var obj  = {};
+        // var v = str.charAt(0);
+        // console.log(typeof v);
+        // obj['a'] = {};
+        // obj['a'].count=1 ;
+        // obj['a'].value="a" ;
+        // console.log(obj);
+        // obj["a"].value = "a";
+        // obj['a'].count = ++obj['a'].count;
+        // console.log(obj);
+        for(var i=0;i<str.length;i++){
+            var v = str.charAt(i);
+            if(obj[v] && obj[v].value == v){
+                ++ obj[v].count;
+            }else{
+                obj[v] ={};
+                obj[v].count = 1;
+                obj[v].value = v;
+            }
+           
+        }
+        // 遍历显示obj中所有对象以及属性，
+        // 假设最大次数
+          var max ;
+          var maxc = 0;
+        for(key in obj){
+            document.write(obj[key].value +'='+obj[key].count+' ');
+            // 比较各对象的count属性值
+            if (obj[key].count > maxc) {
+            	maxc = obj[key].count;
+            	max = obj[key];
+            } 
+        }
+            console.log(max.value,maxc);
+
+
+
+        var str = 'asdfssaaasasasasaa';
+        var json = {};
+        for (var i = 0; i < str.length; i++) {
+             var v = str.charAt(i);
+                if(!json[v]){
+                        json[v] = 1;
+                }else{
+                        json[v]++;
+                }
+        };
+        // console.log(json);
+        var iMax = 0;
+        var iIndex = '';
+        for(var key in json){
+                if(json[key]>iMax){
+                        iMax = json[key];
+                        iIndex = key;
+                }
+        }
+        alert('出现次数最多的是:'+iIndex+'出现'+iMax+'次');
+
+	</script>
+</body>
+</html>

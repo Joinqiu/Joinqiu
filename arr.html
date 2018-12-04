@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组去重</title>
+</head>
+<body>
+	 <script>
+	 	// 1.求任意数和
+	 	  function sum() {
+    // console.log(arguments.length);
+    // console.log(arguments);
+    var result = 0;
+    for (var i = 0; i < arguments.length; i++) {
+        var num = arguments[i];
+        if (typeof num=='number') {
+            result += num;
+        };
+    };
+    // console.log(result);
+    return result;
+}
+    console.log(sum(1,2,3));
+ // 散列去重 
+  var arr = [3,3,5,4,6];
+  var arr2 = [];
+  var json = {};
+  for(var i = 0;i<arr.length;i++) {
+  	if (json[arr[i]]) {
+  		continue;
+  	}
+  	arr2.push(arr[i]);
+  	json[arr[i]] = true;
+  }
+  console.log(arr2);
+// 数组去重
+  var arr = [3,3,5,4,6];
+  var json = {};
+  for(var i = 0;i<arr.length;i++) {
+  	if (json[arr[i]]) {
+      arr.splice(i,1);
+      i--;
+  		continue;
+  	}
+  	json[arr[i]] = true;
+  }
+  console.log(arr);
+
+
+
+// 三： 
+  var arr = [4,4,4,6,7,4,9]
+ var _arr = [];
+ console.log(_arr.indexOf(arr[0]));
+ for (var i = 0;i<arr.length;i++) {
+ 	if(_arr.indexOf(arr[i]) == -1) {
+ 		_arr.push(arr[i]);
+ 	}
+ }
+ for (var i = 0;i<_arr.length-1;i++) {
+ 	for(var j = 0;j<_arr.length-i-1;j++) {
+      if (_arr[j]<_arr[j+1]) {
+      	var tem = _arr[j];
+      	_arr[j] = _arr[j+1];
+      	_arr[j+1] = tem;
+      }
+ 	} 
+ }
+ arr = _arr;
+ console.log(arr);
+console.log(arr.toString());
+
+
+ // 函数作为返回值
+    function creatFn (type) {
+      return function (obj) {
+        return Object.prototype.toString.call(obj) === type;
+      }
+    }
+    var isArry = creatFn ('[object Array]');
+    console.log(isArry({}));
+// n个数的和
+//     function fn (n) {
+//      if (n===1) {
+//        return 1;
+//      }
+//      return fn(n-1)+n;
+//     }
+    // 递归尾部调用
+      function fn (n) {
+        value = 1;
+        while (n != 1) {
+          value = n + value;
+          n = n-1;
+        }
+        return value;
+      }
+      console.log(fn(4));
+// // 计算阶乘
+// function factorial (num) {
+//   if (num <= 1) {
+//     return 1
+//   } else {
+//     return num * factorial(num - 1)
+//   }
+// }
+
+
+	 </script>
+</body>
+</html>

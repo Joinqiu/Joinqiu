@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 构造函数局部变量提升为全局变量
+          function foo(){
+               this.a = function(){alert(2)};
+               foo.a = function(){alert(1)}; 
+               a = function(){alert(3)};
+               var a = function(){alert(4)};
+           }; 
+           foo.prototype.a = function(){alert(5)};
+           foo.a = function(){alert(6)};
+           foo.a(); //6
+           var obj = new foo();
+           obj.a(); //2
+           foo.a(); //1
+// 构造函数局部变量
+      function changeObjectProperty (o) {
+               o.siteUrl = "http://www.csser.com/";
+               o = new Object(); //局部变量
+               o.siteUrl = "http://www.popcg.com/";
+           }
+           var CSSer = new Object();
+           changeObjectProperty(CSSer);
+           console.log(CSSer.siteUrl); //http://www.csser.com/
+
+
+        var User = {
+          count:1,
+          getCount: function () {
+            return this.count;
+          }
+        }
+        console.log(User.getCount());
+        // var a = 1;
+        // function f() {
+        //   console.log(a);
+        //   a = 2;
+        // }
+        // f();
+
+        var a = 1;
+        f= function () {
+          var a = 2;
+          return function (b) {
+            console.log(this[b]);
+          }
+        }();
+     f('a');
+     alert(typeof null);
+	</script>
+</body>
+</html>

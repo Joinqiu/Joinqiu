@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 统计1到400亿之间的自然数中含有多少个1？比如1-21中，有1、10、11、21这四个自然数有5个1
+		var reg = /[1]+/;
+	function countDigitOne(n){
+    var countr = 0;
+    for (var i = 1; i <= n; i++) {
+        var str = i+'';
+        for (var j = 0;j<str.length;j++) {
+
+        countr += reg.test(str[j]);
+        
+        }
+    }
+    return countr;
+}
+console.log(countDigitOne(21));
+  
+
+
+// 		var str = "张三：1000，李四：5000，王五：8000。";
+// var array = str.match(/\d+/g);
+// console.log(array);
+
+    // var t =10;
+    // function f(a) {
+    // 	  var t  = 11;
+    // 	// console.log(t);
+    // }
+    // f(t);
+    // console.log(t);
+
+
+
+   // 数字转为字符串
+    var num = 123;
+	//1.toString
+	// num = num.toString();
+	num = String(num);
+	console.log(typeof num);
+
+
+
+	var a = {n:1};
+	var b = a;
+	a.x = {n:2};
+	a = {n:2};
+	console.log(b.x);
+	console.log(a);
+	console.log(a.x);
+	</script>
+
+	<!-- <script>
+		{
+      // 代码块
+      var a = '1';
+
+      // ES6中有了块级作用域
+      // let a = '1';
+    }
+    console.log(a);
+
+
+    if (true) {
+      var b = '2';
+    }
+    console.log(b);
+
+
+      console.log('start');
+   for (var i =0;i<3;i++) {
+   	(function (index) {
+   		setTimeout(function () {
+   			console.log(index);
+   		},0);
+   	})(i);
+   }
+   console.log('end');
+	</script> -->
+</body>
+</html>

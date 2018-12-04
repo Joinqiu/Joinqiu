@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>str</title>
+</head>
+<body>
+	<script>
+        var str = "bbbccccddddddddfghaaaahs";
+		   var v = str.charAt(0);
+        console.log(typeof v);
+        var obj = {};
+        obj['a'] = {};
+        obj['b'] = {};
+        obj['a'].count=1 ;
+        obj['a'].value="a" ;
+        console.log(obj);
+        obj['a'].count = 2;
+        obj['b'].value = 'b';
+        // console.log(obj);
+		//  判断一个字符串中出现次数最多的字符，并且统计出现的次数-->
+        var str = "bbbccccddddddddfghaaaahs";
+        var obj  = {};
+        for(var i=0;i<str.length;i++){
+            var v = str.charAt(i);
+            if(obj[v] && obj[v].value == v){
+                ++ obj[v].count;
+            }else{
+                obj[v] ={};
+                obj[v].count = 1;
+                obj[v].value = v;
+            }
+           
+        }
+        // 遍历显示obj中所有对象以及属性，
+        // 假设最大次数
+          var max ;
+          var maxc = 0;
+        for(key in obj){
+            document.write(obj[key].value +'='+obj[key].count+' ');
+            // 比较各对象的count属性值
+            if (obj[key].count > maxc) {
+            	maxc = obj[key].count;
+            	max = obj[key];
+            } 
+        }
+            // console.log(max.value,maxc);
+
+
+      // 二
+        var str = 'asdfssaaasasasasaa';
+        var json = {};
+        for (var i = 0; i < str.length; i++) {
+             var v = str.charAt(i);
+                if(!json[v]){
+                        json[v] = 1;
+                }else{
+                        json[v]++;
+                }
+        };
+        console.log(json);
+        var iMax = 0;
+        var iIndex = '';
+        for(var key in json){
+                if(json[key]>iMax){
+                        iMax = json[key];
+                        iIndex = key;
+                }
+        }
+        alert('出现次数最多的是:'+iIndex+'出现'+iMax+'次');
+
+	</script>
+</body>
+</html>
